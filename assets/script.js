@@ -23,22 +23,43 @@ let position = 0;
 createCaroussel(position);
 createDots();
 updateDot();
-createArrow();
+const banner = document.getElementById('#banner');
+const left = document.querySelector('.arrow_left');
+const right = document.querySelector('.arrow_right');
+const numberOfSlide = slides.length;
+const imageElement = document.querySelector('#banner > img');
+const nomElement = document.querySelector('#banner > p');
 
-function createArrow () {
-	const arrow = document.querySelector("#banner");
 
-		const arrow_left = document.createElement("img");
-		arrow_left.setAttribute("class", "arrow arrow_left");
-		arrow_left.setAttribute("src", "./assets/images/arrow_left.png");
-		arrow.appendChild(arrow_left);
-
-		const arrow_right = document.createElement("img");
-		arrow_right.setAttribute("class", "arrow arrow_right");
-		arrow_right.setAttribute("src", "./assets/images/arrow_right.png");
-		arrow.appendChild(arrow_right);
-	
+function showSlide() {
+	imageElement.src = `./assets/images/slideshow/${slides[position].image}`;
+    nomElement.innerHTML = slides[position].tagLine;
+    console.log(imageElement);
+    console.log(nomElement);
+    updateDot();
 }
+
+
+
+left.addEventListener("click", function () {
+    if (position == 0) {
+        position = numberOfSlide - 1;
+    }
+    else {
+        position--;
+    }
+        showSlide();
+});
+
+right.addEventListener("click", function () {
+    if (position == numberOfSlide - 1) {
+        position = 0;
+    } else {
+            position++;
+    }
+    showSlide();
+
+});
 
 function createDots(){
 	 const dots = document.querySelector(".dots");	
@@ -58,7 +79,6 @@ function updateDot(){
 		const dot = listPoints[index];
 		dot.setAttribute("class", "dot dot_selected")	
 	}   //dot.setAttribute("class", "dot dot_selected");
-
    } 
 }
 
