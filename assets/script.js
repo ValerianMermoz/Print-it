@@ -23,6 +23,23 @@ let position = 0;
 createCaroussel(position);
 createDots();
 updateDot();
+createArrow();
+
+function createArrow () {
+	const arrow = document.querySelector("#banner");
+
+		const arrow_left = document.createElement("img");
+		arrow_left.setAttribute("class", "arrow arrow_left");
+		arrow_left.setAttribute("src", "./assets/images/arrow_left.png");
+		arrow.appendChild(arrow_left);
+
+		const arrow_right = document.createElement("img");
+		arrow_right.setAttribute("class", "arrow arrow_right");
+		arrow_right.setAttribute("src", "./assets/images/arrow_right.png");
+		arrow.appendChild(arrow_right);
+	
+}
+
 function createDots(){
 	 const dots = document.querySelector(".dots");	
 	for (let index = 0; index < slides.length; index++) {
@@ -39,8 +56,7 @@ function updateDot(){
    for (let index = 0; index < listPoints.length; index++) {
 	if(index == position){
 		const dot = listPoints[index];
-		dot.setAttribute("class", "dot dot_selected")
-	   console.log(listPoints[index]);	
+		dot.setAttribute("class", "dot dot_selected")	
 	}   //dot.setAttribute("class", "dot dot_selected");
 
    } 
