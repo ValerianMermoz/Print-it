@@ -32,11 +32,12 @@ const nomElement = document.querySelector('#banner > p');
 
 
 function showSlide() {
-	imageElement.src = `./assets/images/slideshow/${slides[position].image}`;
+	  imageElement.src = `./assets/images/slideshow/${slides[position].image}`;
     nomElement.innerHTML = slides[position].tagLine;
-    console.log(imageElement);
     console.log(nomElement);
+    console.log(imageElement);
     updateDot();
+
 }
 
 
@@ -78,9 +79,11 @@ function updateDot(){
 	if(index == position){
 		const dot = listPoints[index];
 		dot.setAttribute("class", "dot dot_selected")	
-	}   //dot.setAttribute("class", "dot dot_selected");
-   } 
-}
+    console.log(dot)
+	}  
+
+}}
+
 
 function createCaroussel(position){
 	const banner = document.querySelector("#banner");
