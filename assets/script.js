@@ -96,8 +96,9 @@ function createCaroussel(position){
 		img.setAttribute("alt" , "Banner Print-it");
 		const p = document.createElement("p");
 		p.innerHTML= element.tagLine;
-		
-		banner.appendChild(img);
+
+    console.log ("img");
+    console.log("p");
 		banner.append(p);
 			
 	
