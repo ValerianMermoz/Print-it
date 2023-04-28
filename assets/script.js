@@ -20,15 +20,18 @@ const slides = [
 
 let position = 0; 
 
+
 createCaroussel(position);
 createDots();
 updateDot();
+
 const banner = document.getElementById('#banner');
 const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');
 const numberOfSlide = slides.length;
 const imageElement = document.querySelector('#banner > img');
 const nomElement = document.querySelector('#banner > p');
+
 
 
 function showSlide() {
@@ -72,17 +75,32 @@ function createDots(){
 	} 
 }
 
-function updateDot(){
-	const listPoints = document.querySelectorAll(".dot");	
-	
+function updateDot() /*{
+
+	for (let index = 0;
+		index < dot.length;					
+		index++) {
+		dot[index].classList.remove('dot_selected');
+
+		
+		dot[index].classList.add('dot_selected');
+    }
+}*/
+
+ 
+
+  const listPoints = document.querySelectorAll(".dot");	
    for (let index = 0; index < listPoints.length; index++) {
-	if(index == position){
+	if (index == position){
 		const dot = listPoints[index];
-		dot.setAttribute("class", "dot dot_selected")	
-    console.log(dot)
+		dot[index].classList.remove('dot_selected');
+  }
+    dot[index].classList.add('dot_selected');
+	  
 	}  
 
-}}
+
+
 
 
 function createCaroussel(position){
