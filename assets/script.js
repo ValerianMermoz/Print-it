@@ -19,29 +19,16 @@ const slides = [
 ];
 
 let position = 0; 
-
+const numberOfSlide = slides.length;
 
 createCaroussel(position);
 createDots();
 updateDot();
 
-const banner = document.getElementById('#banner');
+
 const left = document.querySelector('.arrow_left');
 const right = document.querySelector('.arrow_right');
-const numberOfSlide = slides.length;
-const imageElement = document.querySelector('#banner > img');
-const nomElement = document.querySelector('#banner > p');
 
-
-
-function showSlide() {
-	  imageElement.src = `./assets/images/slideshow/${slides[position].image}`;
-    nomElement.innerHTML = slides[position].tagLine;
-    console.log(nomElement);
-    console.log(imageElement);
-    updateDot();
-
-}
 
 
 
@@ -52,7 +39,7 @@ left.addEventListener("click", function () {
     else {
         position--;
     }
-        showSlide();
+        createCaroussel(position);
 });
 
 right.addEventListener("click", function () {
@@ -61,7 +48,7 @@ right.addEventListener("click", function () {
     } else {
             position++;
     }
-    showSlide();
+    createCaroussel(position);
 
 });
 
@@ -75,50 +62,30 @@ function createDots(){
 	} 
 }
 
-function updateDot() /*{
-
-	for (let index = 0;
-		index < dot.length;					
-		index++) {
-		dot[index].classList.remove('dot_selected');
-
-		
-		dot[index].classList.add('dot_selected');
-    }
-}*/
-
- 
-
+function updateDot() {
   const listPoints = document.querySelectorAll(".dot");	
    for (let index = 0; index < listPoints.length; index++) {
+   
+    const dot = listPoints[index];
 	if (index == position){
-		const dot = listPoints[index];
-		dot[index].classList.remove('dot_selected');
+		dot.classList.add('dot_selected');		
   }
-    dot[index].classList.add('dot_selected');
-	  
+  else{
+    dot.classList.remove('dot_selected');	 
+  }
+    
 	}  
-
-
-
-
+}
 
 function createCaroussel(position){
-	const banner = document.querySelector("#banner");
 	
-		const element = slides[position];
+  	const element = slides[position];
 		//console.log(element);
-		const img = document.createElement("img");
-		img.setAttribute("class" , "banner-img");
+		const img = document.querySelector(".banner-img");
 		img.setAttribute("src" , "./assets/images/slideshow/"+ element.image);
-		img.setAttribute("alt" , "Banner Print-it");
-		const p = document.createElement("p");
+
+		const p = document.querySelector(".banner-txt");
 		p.innerHTML= element.tagLine;
 
-    console.log ("img");
-    console.log("p");
-		banner.append(p);
-			
-	
-
+    updateDot();
 }
