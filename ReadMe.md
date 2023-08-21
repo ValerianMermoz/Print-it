@@ -1,6 +1,7 @@
 <h1>Print-it</h1>
 <p>Site d'imprimerie familiale</p>
-<h2>Compétences</h2>
+<h2>Premiers pas sur le langage JavaScript</h2>
+<h3>Compétences</h3>
 <li>Programmer en utilisant les fondamentaux de JavaScript</li>
 <li>Mettre en place un caroussel dynamique</li>
 
